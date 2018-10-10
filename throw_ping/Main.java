@@ -2,33 +2,31 @@ import java.io.*;
 
 public class Main {
 
-    public static String execute(String bits) {
-        String command = "ping www.google.com -c 10 -s " + bits;
-        String res = "";
-		Process p;
+    public static String execute(String command) {
+        StringBuffer res = new StringBuffer();
 		try {
-			p = Runtime.getRuntime().exec(command);
+			Process p = Runtime.getRuntime().exec(command);
 			p.waitFor();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            String line = "";			
+            String line;			
 			while ((line = reader.readLine())!= null) {
-				if (line.contains("rtt")) return line;
+			    res.append(line);
+                res.append(System.getProperty("line.separator"));
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return res;
+		return res.toString();
     }
     
     public static void main(String args[]) {
+        System.out.println("length min avg max mdev");
         for (int i = 1; i < 15; ++i) {
-            String bits = Integer.toString(i*100);
-            String res = execute(bits);
-            System.out.println(res);
+            String bits = Integer.toString(i * 100);
+            String command = "ping google.com -c 10 -s " + bits;
+            String res = execute(command);
             String[] parts = res.split("/");
-            System.out.println(parts[4]);
+            System.out.println(parts[3].split(" = ")[1] + " " + parts[4] + " " + parts[5] + " " + parts[6].split(" ")[0]);
         }
     }
 }

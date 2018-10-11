@@ -23,7 +23,7 @@ public class Main {
         System.out.println("length min avg max mdev");
         for (int i = 1; i < 15; ++i) {
             String bits = Integer.toString(i * 100);
-            String command = "ping google.com -c 10 -s " + bits;
+            String command = "ping google.com -c 10 -f -s " + bits;
             String res = execute(command);
             String[] parts = res.split("/");
             System.out.println(parts[3].split(" = ")[1] + " " + parts[4] + " " + parts[5] + " " + parts[6].split(" ")[0]);

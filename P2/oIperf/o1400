@@ -1,0 +1,12 @@
+------------------------------------------------------------
+Client connecting to 10.0.11.122, UDP port 5001
+Sending 1400 byte datagrams
+UDP buffer size:  160 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.11.102 port 59103 connected with 10.0.11.122 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-10.0 sec  11.9 MBytes  10.0 Mbits/sec
+[  3] Sent 8930 datagrams
+[  3] Server Report:
+[  3]  0.0-10.0 sec  11.1 MBytes  9.32 Mbits/sec   0.665 ms  598/ 8929 (6.7%)
+[  3]  0.0-10.0 sec  1 datagrams received out-of-order
